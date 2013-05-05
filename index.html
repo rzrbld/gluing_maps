@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Gluing maps</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href='http://fonts.googleapis.com/css?family=Trade+Winds' rel='stylesheet' type='text/css'>
+    <link href="css/bootstrap.css" rel="stylesheet">
+     <link href="css/bootstrap-responsive.css" rel="stylesheet">
+    <style type="text/css">
+      body {
+           height: 100%; margin: 0;  
+      }
+      .title {font-family: 'Trade Winds', sans-serif; font-size: 3em; font-weight: 400;}
+      .header{text-align: left;}
+
+      /* Custom container */
+      .container-narrow {
+        margin: 0 auto;
+        max-width: 95%;
+      }
+      .container-narrow > hr {
+        margin: 30px 0;
+      }
+
+      /* Main marketing message and sign up button */
+      .jumbotron {
+        margin: 20px 0;
+        text-align: center;
+      }
+      .jumbotron h1 {
+        line-height: 1;
+      }
+
+      /* Supporting marketing content */
+      .marketing {
+        margin: 20px 0;
+      }
+      .marketing p + h4 {
+        margin-top: 28px;
+      }
+
+    </style>
+   
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.js"></script>
+    <![endif]-->
+   <link rel="shortcut icon" href="../assets/ico/favicon.png">
+  </head>
+
+  <body>
+
+    <div class="container-narrow">
+
+      <div class="masthead">
+        <ul class="nav nav-pills pull-right">
+          <li class="active"><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+        <h3 class="title">Gluing maps</h3>
+      </div>
+     <!--  <div class="row-fluid menu">
+        <div class="span12">
+         <form class="form-inline">
+          <table class="table well">
+            <tr>
+              <td>Width:</td>
+              <td>Height:</td>
+              <td>N coords:</td>
+              <td>E coords:</td>
+            <tr>
+              <td><input type="text" id="width" class="input-small"></td>
+              <td><input type="text" id="height" class="input-small"></td>
+              <td><input type="text" id="centerN" class="input-small"></td>
+              <td><input type="text" id="centerE" class="input-small"></td>
+            </tr>
+          </table>
+            <button type="submit" class="btn btn-primary" id='generate'>Generate</button>
+            <button type="button" class="btn" id="preview">Preview</button>
+        </form>
+          
+          <div class="span3">
+            1
+          </div>
+          <div class="span3">
+            2
+          </div>
+          <div class="span3">
+            3
+          </div>
+          <div class="span3">
+            4
+          </div>
+        </div>
+      </div>-->
+      <div class="row-fluid marketing menu">
+        <div class="span3">
+        <table>
+            <tr>
+              <td colspan='2' class='header'><span class="nav-header">Final image params:</span></td>
+            </tr> 
+            <tr>
+              <td>width:</td><td><input type="text" id="width" class="input-small"></td>
+            </tr> 
+            <tr>
+              <td>height:</td><td><input type="text" id="height" class="input-small"></td>
+            </tr> 
+            <tr>
+              <td colspan='2' class='header'><span class="nav-header">top left corner coordinates:</span></td>
+            </tr>
+            <tr>
+              <td>N coord:</td><td><input type="text" id="centerN" class="input-small"></td>
+            </tr> 
+            <tr>
+              <td>E coord:</td><td><input type="text" id="centerE" class="input-small"></td>
+            </tr> 
+            <tr>
+              <td colspan='2' class='header'><span class="nav-header">other params:</span></td>
+            </tr>
+            <tr class='advanced'>
+              <td>piece:</td><td><input type="text" id="size" class="input-small">(only 640px)</td>
+            </tr> 
+            <tr>
+              <td>zoom:</td><td><input type="text" id="zoom"  class="input-small">(only 15,16,17)</td>
+            </tr> 
+            <tr class='advanced'>
+              <td>key:</td><td><input type="text" id="key"  class="input-small"></td>
+            </tr> 
+            <tr class='advanced'>
+              <td>scale:</td><td><input type="text" id="scale"  class="input-small">(only 1)</td>
+            </tr> 
+            <tr  class='advanced'>
+              <td>ctocE:</td><td><input type="text" id="ctocE"  class="input-small">(auto value)</td>
+            </tr> 
+            <tr  class='advanced'>
+              <td>ctocN:</td><td><input type="text" id="ctocN"  class="input-small">(auto vlaue)</td>
+            </tr> 
+        </table>
+        <div style='margin-top: 20px;'>
+          <span id='spanadvanced' class="label label-info" style="cursor:pointer;"><span  style="cursor:pointer;" id='advanced'>Show advanced params &darr;</span></span>
+          <span id='spanbasic' class="label label-info"  style="cursor:pointer;"><span id='basic'  style="cursor:pointer;">Show basic params &uarr;</span></span>
+          <br><br>
+          <button type="submit" class="btn btn-primary" id='generate'>Generate</button>
+            <button type="button" class="btn" id="preview">Preview</button>
+        </div>
+        </div>
+
+        <div class="span9">
+          <div style=" width: 921px; height: 500px; text-align: center;" class="img-polaroid" id='previewArea'>
+        preview area
+          </div>
+        </div>
+      </div>
+
+      <div class="footer">
+        <p>razblade@gmail.com</p>
+      </div>
+
+    </div> <!-- /container -->
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+    <script src="js/main.js" type="text/javascript"></script>
+    <script src="js/bootstrap.min.js"></script>
+   
+
+  </body>
+</html>

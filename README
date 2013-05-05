@@ -1,0 +1,24 @@
+#README 
+----------------
+1. description
+2. requirement
+3. installation
+4. contact
+
+#descrption
+This is simple tool to make a big map from small pieces, using google map api. Point start point N\E coords, zoom and size of output image. script make few (depends on size of output image) queries, put togheter all images, and give you a link to download final image.
+
+#requirements
+!software part
+-php5 with GDlib (graphic library)
+-http-server Apache or other web server to run php scripts.
+!other req
+-Google map API key.
+
+#installation
+1. Get google basic map api key. 
+2. Put key into config.php
+3. make some changes in php.ini about execution time and memory limith (90 sec & 512Mb shoud be enouth for final image size of ~12000x7000 pix) 
+
+#contact
+razblade@gmail.com
