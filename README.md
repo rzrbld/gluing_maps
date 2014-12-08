@@ -12,7 +12,7 @@ This is simple tool to make a big map from small pieces, using google map api. P
 #requirements
 software part:<br/>
 1. php5 with GDlib (graphic library)<br/>
-2. http-server Apache or other web server to run php scripts.<br/>
+2. http-server Apache or other web server to run php scripts.<br/><br/>
 other requirements:<br/>
 1. Google map API key.
 
